@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="175dp"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/Compromisso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Compromisso"/>
+
+    <ImageButton
+        android:id="@+id/CompromissoEdit"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/Compromisso"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="274dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_mode_edit" />
+
+     <!-- <ImageButton
+         android:id="@+id/CompromissoEdi"
+         android:layout_width="80dp"
+         android:layout_height="40dp"
+         android:scaleType="fitCenter"
+         android:layout_marginLeft="300dp"
+         android:layout_below="@+id/CompromissoEdit"
+         android:onClick="salvarF"
+         android:background="@null"
+         android:src="@mipmap/ic_launcher_editt"
+         />
+
+     <ImageButton
+         android:id="@+id/CompromissoEd"
+         android:layout_width="80dp"
+         android:layout_height="40dp"
+         android:scaleType="fitCenter"
+         android:layout_marginLeft="300dp"
+         android:onClick="carregar"
+         android:layout_below="@+id/CompromissoEdi"
+         android:background="@null"
+         android:src="@mipmap/ic_launcher_editt"
+         />
+
+     <ImageButton
+         android:id="@+id/Imprimir"
+         android:layout_width="80dp"
+         android:layout_height="40dp"
+         android:scaleType="fitCenter"
+         android:layout_marginLeft="300dp"
+         android:onClick="imprimir"
+         android:layout_below="@+id/CompromissoEd"
+         android:background="@null"
+         android:src="@mipmap/ic_launcher_editt"
+         />-->
+
+
+    <TextView
+        android:id="@+id/Descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Descrição"
+        android:layout_below="@+id/Compromisso"/>
+
+
+
+
+    <TextView
+        android:id="@+id/Data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Data"
+        android:layout_below="@+id/Descricao"
+        tools:ignore="UnknownId" />
+
+
+
+    <ImageButton
+        android:id="@+id/Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/ic_delete_button"
+        android:layout_below="@id/Data"
+        android:layout_marginTop="10dp"
+
+        />
+
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/Delete"
+        android:layout_marginTop="10dp"
+        android:focusable="false" />
+
+
+</RelativeLayout>
