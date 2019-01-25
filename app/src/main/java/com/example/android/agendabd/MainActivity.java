@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements OndeleteListener,
     public static final String EXTRA_MESSAGE_EDIT =
             "TRUE";
     private final int REQUEST_CODE_EDIT = 101;
+    CompromissoListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +54,10 @@ public class MainActivity extends AppCompatActivity implements OndeleteListener,
         });
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final CompromissoListAdapter adapter = new CompromissoListAdapter(this,this,this);
+        adapter = new CompromissoListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
 
         mCompViewModel = ViewModelProviders.of(this).get(CompromissoViewModel.class);
@@ -72,13 +74,16 @@ public class MainActivity extends AppCompatActivity implements OndeleteListener,
     @Override
     protected void onStart() {
         super.onStart();
-        //adapter.setDeleteListener(this);
+        adapter.setDeleteListener(this);
+        adapter.setEditListener(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        //adapter.setDeleteListener(null);
+        adapter.setDeleteListener(null);
+        adapter.setEditListener(null);
+
     }
 
     @Override

@@ -36,15 +36,23 @@ public class CompromissoListAdapter extends RecyclerView.Adapter<CompromissoList
     private final LayoutInflater mInflater;
     private List<Compromisso> mCompromisso; // Cached copy of words
 
-    CompromissoListAdapter(Context context,OndeleteListener deleteListener,OnEditListener editListener) {
+    CompromissoListAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
-        this.deleteListener = deleteListener;
-        this.editListener = editListener;}
+        this.editListener = editListener;
+    }
 
     @Override
     public CompromissoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new CompromissoViewHolder(itemView);
+    }
+
+    public void setDeleteListener(OndeleteListener deleteListener) {
+        this.deleteListener = deleteListener;
+    }
+
+    public void setEditListener(OnEditListener editListener) {
+        this.editListener = editListener;
     }
 
     @Override
@@ -56,31 +64,34 @@ public class CompromissoListAdapter extends RecyclerView.Adapter<CompromissoList
             holder.dataItemView.setText(current.getData());
 
 
-
         } else {
             // Covers the case of data not being ready yet.
             holder.compromissoItemView.setText("No Word");
         }
         holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
                 Compromisso comp = mCompromisso.get(position);
-                if(deleteListener!=null) {
+                if (deleteListener != null) {
                     deleteListener.deleteItem(comp.getCompromisso());
                 }
             }
         });
 
         holder.edit.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 
                 Compromisso comp = mCompromisso.get(position);
-                System.out.println("ENTREEEEEEEI");
-                editListener.editItem(comp);
+
+                if (editListener != null) {
+                    editListener.editItem(comp);
+                }
             }
         });
     }
 
-    void setCompromissos(List<Compromisso> compromissos){
+    void setCompromissos(List<Compromisso> compromissos) {
         mCompromisso = compromissos;
         notifyDataSetChanged();
     }
